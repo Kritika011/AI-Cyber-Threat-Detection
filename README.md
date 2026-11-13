@@ -215,7 +215,7 @@ Current architecture:
           Threat Analysis
 
 
-🛠️ Technology Stack
+# 🛠️ Technology Stack
 Machine Learning
 Python
 Pandas

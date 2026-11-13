@@ -10,7 +10,7 @@ csv_files = [
 
 print("========== CICIDS2017 DATASET ==========\n")
 
-total_rows = 0
+total_rows = 0  
 
 for file in csv_files:
 
