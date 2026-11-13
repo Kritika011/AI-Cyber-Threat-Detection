@@ -1,315 +1,212 @@
-# 🛡️ AI-Powered Cybersecurity Threat Detection and Incident Analysis System
+# 🛡️ CyberSentinel – AI-Powered Cyber Threat Detection and Incident Analysis Platform
 
-An AI-powered cybersecurity system that uses Machine Learning to detect and classify network security threats from network-flow data and Generative AI to provide human-readable threat explanations and mitigation recommendations.
+An AI-powered cybersecurity platform that uses Machine Learning to detect and classify network threats from network-flow data. It provides threat risk assessment, attack intelligence, and a web-based dashboard for analyzing detection results.
 
-> **Project Status:** 🚧 In Development  
-> **Project Type:** MCA Minor Project  
-> **Dataset:** CICIDS2017  
-> **ML Model:** Random Forest  
-> **Backend:** FastAPI  
-> **Frontend:** React.js (Planned)  
-> **Generative AI:** Google Gemini API (Planned)  
-> **Database:** MySQL (Planned)
+**Project Type:** MCA Minor Project  
+**Dataset:** CICIDS2017  
+**Machine Learning Model:** Random Forest Classifier  
+**Backend:** Python, FastAPI  
+**Frontend:** React.js, Vite  
+**Database:** MongoDB Atlas  
+**Status:** Under Development
 
 ---
 
 ## 📌 Table of Contents
 
-- [About the Project](#-about-the-project)
-- [Problem Statement](#-problem-statement)
-- [Project Objectives](#-project-objectives)
-- [Key Features](#-key-features)
-- [System Architecture](#-system-architecture)
-- [Technology Stack](#-technology-stack)
-- [Dataset](#-dataset)
-- [Machine Learning](#-machine-learning)
-- [Current ML Results](#-current-ml-results)
-- [Backend API](#-backend-api)
-- [Project Structure](#-project-structure)
-- [Installation](#-installation)
-- [Running the Project](#-running-the-project)
-- [Testing the API](#-testing-the-api)
-- [Team Git Workflow](#-team-git-workflow)
-- [Development Roadmap](#-development-roadmap)
-- [Important Notes](#-important-notes)
-- [Limitations](#-limitations)
-- [Future Improvements](#-future-improvements)
-- [Team](#-team)
-- [License](#-license)
+1. [About the Project](#-about-the-project)
+2. [Problem Statement](#-problem-statement)
+3. [Objectives](#-objectives)
+4. [Key Features](#-key-features)
+5. [Technology Stack](#-technology-stack)
+6. [System Architecture](#-system-architecture)
+7. [Dataset and Machine Learning](#-dataset-and-machine-learning)
+8. [Model Performance](#-model-performance)
+9. [Project Structure](#-project-structure)
+10. [Installation and Setup](#-installation-and-setup)
+11. [Running the Project](#-running-the-project)
+12. [API Endpoints](#-api-endpoints)
+13. [Testing](#-testing)
+14. [Team Git Workflow](#-team-git-workflow)
+15. [Project Limitations](#-project-limitations)
+16. [Future Improvements](#-future-improvements)
+17. [Project Team](#-project-team)
 
 ---
 
-# 🔍 About the Project
+## 🔍 About the Project
 
-The **AI-Powered Cybersecurity Threat Detection and Incident Analysis System** is designed to identify malicious network activity using Machine Learning.
+CyberSentinel is a Machine Learning-based cybersecurity threat detection and incident analysis platform.
 
-The system analyzes network-flow features and classifies traffic into different categories such as:
+The system analyzes network-flow data and predicts whether the traffic is benign or belongs to a known attack category.
 
-- BENIGN
-- DDoS
-- DoS Hulk
-- DoS GoldenEye
-- DoS Slowhttptest
-- DoS slowloris
-- PortScan
-- Bot
-- FTP-Patator
-- SSH-Patator
-- Web Attacks
-- Infiltration
-- Heartbleed
+It uses a trained Random Forest model to classify network traffic and assigns a preliminary risk score and risk level to each prediction.
 
-The system is designed to eventually combine Machine Learning with Generative AI.
+The platform also provides attack intelligence information, including:
 
-The Machine Learning model identifies the type of threat, while the Generative AI component will explain:
+- Attack descriptions
+- Potential security impact
+- Common indicators
+- Recommended mitigation measures
+- Risk assessment
 
-- What the detected attack means
-- Why it may be dangerous
-- Possible impact
-- Recommended mitigation steps
-- Security response suggestions
+The results are displayed through an interactive React dashboard.
 
----
+The current implementation processes uploaded CSV files containing network-flow features. It does not capture live network traffic.
 
-# 🎯 Problem Statement
+## 🎯 Problem Statement
 
-Traditional cybersecurity monitoring systems can generate large amounts of network security alerts that can be difficult to interpret.
+Network security monitoring can generate large amounts of technical information that may be difficult to understand and analyze.
 
-The goal of this project is to build a system that can:
+The goal of CyberSentinel is to develop a platform that can:
 
 1. Analyze network-flow data.
-2. Detect suspicious network activity.
-3. Classify the detected attack.
-4. Assign a risk level.
-5. Provide an understandable explanation of the detected threat.
-6. Store historical detection results.
-7. Display the results through a web-based dashboard.
+2. Identify suspicious network activity.
+3. Classify known network attacks.
+4. Estimate the risk level of detected threats.
+5. Provide understandable attack information.
+6. Store historical detection records.
+7. Display detection results through a web dashboard.
 
-The current implementation focuses on the Machine Learning detection pipeline and FastAPI backend.
+## 🎯 Project Objectives
 
----
-
-# 🎯 Project Objectives
-
-### Primary Objectives
-
-- Build a Machine Learning-based cybersecurity threat detection system.
-- Process network-flow data using Python.
-- Train a classification model using CICIDS2017.
+- Develop a Machine Learning-based threat detection system.
+- Process and analyze network-flow datasets.
+- Train a multi-class classification model.
 - Detect multiple categories of network attacks.
-- Provide prediction confidence.
-- Assign a preliminary risk level.
-- Provide a REST API for threat detection.
+- Display prediction confidence.
+- Assign preliminary threat risk levels.
+- Store detection history in MongoDB.
+- Develop an interactive web dashboard.
+- Provide attack descriptions and mitigation recommendations.
 
-### Planned Objectives
+## ⭐ Key Features
 
-- Integrate Google Gemini for AI-based threat explanations.
-- Store detection history using MySQL.
-- Build a React dashboard.
-- Display statistics and visualizations.
-- Provide detailed threat analysis.
-- Support CSV upload through the web interface.
+### 1. Machine Learning Threat Detection
 
----
+- Random Forest classification.
+- Multi-class attack prediction.
+- Network-flow CSV processing.
+- Prediction confidence calculation.
 
-# ⭐ Key Features
+### 2. Risk Assessment
 
-## Currently Implemented
+- Risk score calculation.
+- Low, Medium, High and Critical risk levels.
+- Attack-category-based risk assessment.
 
-- CICIDS2017 dataset processing
-- Multi-class network attack classification
-- Data cleaning
-- Class balancing through sampling
-- Random Forest model training
-- Model evaluation
-- Model serialization
-- FastAPI backend
-- CSV upload API
-- Threat prediction API
-- Prediction confidence
-- Preliminary risk classification
-- Swagger API documentation
+### 3. Threat Intelligence
 
-## Planned
+- Attack descriptions.
+- Potential impacts.
+- Common attack indicators.
+- Mitigation recommendations.
 
-- Gemini AI threat explanation
-- MySQL database
-- Threat history
-- React dashboard
-- Authentication
-- Charts and statistics
-- Detailed threat analysis page
-- Improved risk scoring
-- Model comparison
-- Production deployment
+### 4. Web Dashboard
 
----
+- Overview dashboard.
+- CSV file upload.
+- Threat detection results.
+- Attack distribution.
+- Detection history.
+- Detailed threat reports.
 
-# 🏗️ System Architecture
+### 5. Database Integration
 
-Current architecture:
+- MongoDB Atlas integration.
+- Detection history storage.
+- Historical prediction retrieval.
 
-````text
-             CICIDS2017 Dataset
-                     │
-                     ▼
+## 🛠️ Technology Stack
+
+| Category             | Technologies         |
+| -------------------- | -------------------- |
+| Programming Language | Python, JavaScript   |
+| Machine Learning     | Scikit-learn         |
+| Data Processing      | Pandas, NumPy        |
+| Model Storage        | Joblib               |
+| Backend              | FastAPI, Uvicorn     |
+| Frontend             | React.js, Vite       |
+| Styling              | CSS                  |
+| Database             | MongoDB Atlas        |
+| API Communication    | REST API             |
+| Development Tools    | Git, GitHub, VS Code |
+
+## 🏗️ System Architecture
+
+```text
+              Network Flow CSV
+                     |
+                     v
+              CSV File Upload
+                     |
+                     v
+              React Dashboard
+                     |
+                     v
+               FastAPI Backend
+                     |
+                     v
              Data Preprocessing
-                     │
-                     ▼
-              Dataset Sampling
-                     │
-                     ▼
-             Random Forest Model
-                     │
-                     ▼
-              Saved ML Model
-                     │
-                     ▼
-              FastAPI Backend
-                     │
-                     ▼
-               CSV Upload
-                     │
-                     ▼
+                     |
+                     v
+           Trained Random Forest
+                     |
+                     v
              Threat Prediction
-                     │
-              ┌──────┴──────┐
-              ▼             ▼
-          Prediction     Confidence
-              │
-              ▼
-          Risk Level
-                            ┌──────────────────┐
-                  │   User / Admin   │
-                  └────────┬─────────┘
-                           │
-                           ▼
-                  ┌──────────────────┐
-                  │ React Dashboard  │
-                  └────────┬─────────┘
-                           │
-                           ▼
-                  ┌──────────────────┐
-                  │   FastAPI API    │
-                  └────────┬─────────┘
-                           │
-                 ┌─────────┴─────────┐
-                 ▼                   ▼
-          ┌──────────────┐    ┌──────────────┐
-          │ ML Detection │    │ MySQL        │
-          │ RandomForest │    │ Database     │
-          └──────┬───────┘    └──────────────┘
-                 │
-                 ▼
-          ┌──────────────┐
-          │ Risk Scoring │
-          └──────┬───────┘
-                 │
-                 ▼
-          ┌──────────────┐
-          │ Gemini AI    │
-          │ Explanation  │
-          └──────┬───────┘
-                 │
-                 ▼
-          Threat Analysis
+                     |
+             +-------+-------+
+             |               |
+             v               v
+       Attack Type       Confidence
+             |
+             v
+         Risk Scoring
+             |
+             v
+       Threat Intelligence
+             |
+             v
+       Detection Results
+             |
+        +----+-----+
+        |          |
+        v          v
+    Dashboard   MongoDB Atlas
+                  History
+```
 
+## 📊 Dataset and Machine Learning
 
-# 🛠️ Technology Stack
-Machine Learning
-Python
-Pandas
-NumPy
-Scikit-learn
-Joblib
-Backend
-Python
-FastAPI
-Uvicorn
-Python Multipart
-Frontend
+The project uses the CICIDS2017 dataset for training and evaluating the Machine Learning model.
 
-Planned:
+CICIDS2017 contains benign and malicious network traffic represented through network-flow features.
 
-React.js
-Tailwind CSS
-Recharts / Chart.js
-Database
+### Dataset Details
 
-Planned:
+- Original CSV files: 8
+- Network-flow features: 78
+- Target column: `Label`
+- Prepared dataset: approximately 149,201 rows.
 
-MySQL
-Generative AI
+### Data Preprocessing
 
-Planned:
+The preprocessing pipeline includes:
 
-Google Gemini API
-Development Tools
-Git
-GitHub
-VS Code
-PowerShell
-📊 Dataset
+1. Reading the original CSV files.
+2. Combining the network traffic records.
+3. Sampling up to 10,000 records per attack category.
+4. Handling missing and infinite values.
+5. Removing invalid records.
+6. Shuffling the prepared dataset.
 
-This project uses the CICIDS2017 dataset.
+### Machine Learning Algorithm
 
-CICIDS2017 contains network traffic representing both benign and malicious activity.
+The project uses the Random Forest Classifier.
 
-The dataset contains network-flow features that can be used for Machine Learning-based intrusion detection.
+Model configuration:
 
-The downloaded dataset contains 8 CSV files:
-
-Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv
-Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv
-Friday-WorkingHours-Morning.pcap_ISCX.csv
-Monday-WorkingHours.pcap_ISCX.csv
-Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv
-Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv
-Tuesday-WorkingHours.pcap_ISCX.csv
-Wednesday-workingHours.pcap_ISCX.csv
-
-Each file contains approximately 79 columns, including the target Label column.
-
-🧹 Data Preprocessing
-
-The original dataset is large, so the project currently creates a smaller balanced working dataset.
-
-The preprocessing pipeline:
-
-Original CICIDS2017 CSV files
-          │
-          ▼
-Read CSV files
-          │
-          ▼
-Combine attack classes
-          │
-          ▼
-Sample up to 10,000 rows per label
-          │
-          ▼
-Remove invalid/missing values
-          │
-          ▼
-Shuffle dataset
-          │
-          ▼
-cicids_balanced.csv
-
-The current prepared dataset contains:
-
-Rows: approximately 149,201
-Columns: 79
-Features: 78
-Target: Label
-🤖 Machine Learning Model
-
-The current model is:
-
-Random Forest Classifier
-
-Configuration:
-
+```python
 RandomForestClassifier(
     n_estimators=150,
     random_state=42,
@@ -317,706 +214,366 @@ RandomForestClassifier(
     class_weight="balanced_subsample",
     max_features="sqrt"
 )
+```
 
-The target column is:
+The dataset is divided into training and testing sets using an 80:20 stratified split.
 
-Label
+### Attack Categories
 
-The labels are converted into numerical values using:
+The model supports categories such as:
 
-LabelEncoder
+- BENIGN
+- DDoS
+- DoS Hulk
+- DoS GoldenEye
+- DoS slowloris
+- DoS Slowhttptest
+- PortScan
+- Bot
+- FTP-Patator
+- SSH-Patator
+- Web Attack Brute Force
+- Web Attack XSS
+- SQL Injection
+- Heartbleed
+- Infiltration
 
-The dataset is split using an 80/20 stratified train/test split.
+## 📈 Model Performance
 
-📈 Current ML Results
+Current evaluation results:
 
-The current model achieved approximately:
+| Metric            | Result |
+| ----------------- | -----: |
+| Accuracy          | 99.23% |
+| Macro F1-score    |   0.91 |
+| Weighted F1-score |   0.99 |
 
-Accuracy: 99.23%
+Some minority attack categories have limited training and testing examples.
 
-Macro F1:    0.91
-Weighted F1: 0.99
+Examples of class-level F1-scores:
 
-Some classes have significantly fewer examples than others.
+| Attack Category          | F1-score |
+| ------------------------ | -------: |
+| Web Attack Brute Force   |     0.76 |
+| Web Attack SQL Injection |     0.57 |
+| Web Attack XSS           |     0.39 |
 
-Therefore, accuracy alone should not be treated as sufficient evidence of model quality.
+These results are based on a held-out split of the prepared CICIDS2017 dataset. They should not be interpreted as guaranteed real-world detection accuracy.
 
-The current evaluation shows particularly weaker performance on some rare Web Attack categories.
+## 💾 Trained Model Files
 
-For example, the current test results included approximately:
+The following files are required to run the existing trained model:
 
-Web Attack Brute Force   F1 ≈ 0.76
-Web Attack SQL Injection F1 ≈ 0.57
-Web Attack XSS           F1 ≈ 0.39
-
-Some rare classes also have very small numbers of examples.
-
-For example:
-
-Heartbleed       11 examples
-Infiltration     36 examples
-SQL Injection    21 examples
-
-Therefore, these results require further evaluation before making strong claims about real-world detection performance.
-
-💾 Saved Machine Learning Files
-
-After training, the following files are generated:
-
+```text
 models/
 ├── random_forest_model.pkl
 ├── label_encoder.pkl
 └── feature_names.pkl
-random_forest_model.pkl
+```
 
-Contains the trained Random Forest model.
+- `random_forest_model.pkl`: Trained Random Forest model.
+- `label_encoder.pkl`: Encoded attack-category mapping.
+- `feature_names.pkl`: Required input feature names.
 
-label_encoder.pkl
+**Important:** These model files must be included in the GitHub repository. The original dataset is not required to run predictions with the already-trained model.
 
-Contains the mapping between numerical class IDs and attack labels.
+## 📁 Project Structure
 
-feature_names.pkl
-
-Contains the feature names required by the model.
-
-🚀 Backend API
-
-The current backend uses FastAPI.
-
-Main backend file:
-
-backend/main.py
-
-The backend runs on:
-
-http://127.0.0.1:8000
-🔗 API Endpoints
-GET /
-
-Checks whether the API is running.
-
-Example response:
-
-{
-  "message": "AI Cyber Threat Detection API is running"
-}
-GET /health
-
-Checks backend and model status.
-
-Example:
-
-{
-  "status": "healthy",
-  "model": "Random Forest"
-}
-POST /predict
-
-Uploads a CSV file and performs threat detection.
-
-Example request:
-
-POST /predict
-
-Input:
-
-CSV file containing the required network-flow features
-
-Example response:
-
-{
-  "filename": "test_sample.csv",
-  "total_flows": 10,
-  "results": [
-    {
-      "prediction": "BENIGN",
-      "confidence": 100,
-      "risk": "Low"
-    },
-    {
-      "prediction": "DoS Hulk",
-      "confidence": 100,
-      "risk": "High"
-    }
-  ]
-}
-⚠️ Current Risk Classification
-
-The current implementation uses a preliminary rule-based risk system.
-
-BENIGN
-   ↓
-Low
-
-Non-BENIGN + confidence >= 90%
-   ↓
-High
-
-Non-BENIGN + confidence >= 70%
-   ↓
-Medium
-
-Other
-   ↓
-Low
-
-This is a temporary implementation.
-
-The risk-scoring system will be improved later by considering:
-
-Attack type
-Model confidence
-Attack severity
-Frequency
-Number of affected flows
-Historical activity
-Other security indicators
-📁 Project Structure
-
-Current project structure:
-
+```text
 AI-Cyber-Threat-Detection/
 │
 ├── backend/
 │   └── main.py
 │
 ├── frontend/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── index.html
 │
 ├── ml/
 │   ├── inspect_dataset.py
 │   ├── prepare_dataset.py
 │   ├── train_model.py
-│   └── test_model.py
-│
-├── dataset/
-│   ├── MachineLearningCVE/
-│   ├── cicids_balanced.csv
-│   └── test_sample.csv
+│   ├── test_model.py
+│   └── create_test_samples.py
 │
 ├── models/
 │   ├── random_forest_model.pkl
 │   ├── label_encoder.pkl
 │   └── feature_names.pkl
 │
+├── test_data/
+│
+├── dataset/
+│
+├── .env.example
 ├── .gitignore
 ├── requirements.txt
 └── README.md
+```
 
-Dataset files and trained model files are excluded from GitHub using .gitignore because of their size and reproducibility considerations.
+The dataset directory may be empty on a teammate's computer. The trained model files must be available.
 
-💻 Installation
-1. Clone the Repository
-git clone YOUR_GITHUB_REPOSITORY_URL
+## 💻 Installation and Setup
 
-Example:
+### Prerequisites
 
-git clone https://github.com/YOUR_USERNAME/AI-Cyber-Threat-Detection.git
+Install the following software:
 
-Enter the project:
+- Python 3
+- Node.js and npm
+- Git
+- Visual Studio Code
 
+### Step 1: Clone the Repository
+
+```bash
+git clone https://github.com/Kritika011/AI-Cyber-Threat-Detection.git
+```
+
+Move into the project directory:
+
+```bash
 cd AI-Cyber-Threat-Detection
-🐍 Python Virtual Environment
+```
 
-Create a virtual environment:
+For a private repository, the GitHub owner must first invite you as a collaborator.
 
+### Step 2: Create a Python Virtual Environment
+
+```bash
 python -m venv venv
+```
 
 Activate it on Windows PowerShell:
 
+```powershell
 .\venv\Scripts\Activate.ps1
+```
 
-If PowerShell blocks activation, you can use:
+If PowerShell blocks activation, run:
 
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+```
 
 Then activate again:
 
+```powershell
 .\venv\Scripts\Activate.ps1
-📦 Install Dependencies
+```
 
-Install the required packages:
+### Step 3: Install Python Dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
-Current core dependencies include:
+### Step 4: Configure Environment Variables
 
-pandas
-numpy
-scikit-learn
-joblib
-fastapi
-uvicorn
-python-multipart
-📥 Dataset Setup
+Create a `.env` file in the project root.
 
-The CICIDS2017 dataset is not stored directly in this GitHub repository.
+Use `.env.example` as a reference.
 
-Download the dataset separately and place the extracted files under:
+Add the required MongoDB connection string:
 
-dataset/MachineLearningCVE/
+```env
+MONGO_URI=your_mongodb_connection_string
+```
 
-The expected structure is:
+Use your own valid database credentials. Never commit the real `.env` file to GitHub.
 
-dataset/
-└── MachineLearningCVE/
-    ├── Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv
-    ├── Friday-WorkingHours-Afternoon-PortScan.pcap_ISCX.csv
-    ├── Friday-WorkingHours-Morning.pcap_ISCX.csv
-    ├── Monday-WorkingHours.pcap_ISCX.csv
-    ├── Thursday-WorkingHours-Afternoon-Infilteration.pcap_ISCX.csv
-    ├── Thursday-WorkingHours-Morning-WebAttacks.pcap_ISCX.csv
-    ├── Tuesday-WorkingHours.pcap_ISCX.csv
-    └── Wednesday-workingHours.pcap_ISCX.csv
-🧪 Prepare the Dataset
+The MongoDB Atlas cluster must also allow connections from the computer's IP address.
 
-From the project root:
+### Step 5: Install Frontend Dependencies
 
-python ml/inspect_dataset.py
+Open a second terminal:
 
-This checks the dataset files and their structure.
+```bash
+cd frontend
+npm install
+```
 
-Then run:
+## 🚀 Running the Project
 
-python ml/prepare_dataset.py
+The backend and frontend must run in separate terminals.
 
-This creates:
+### Terminal 1: Start the Backend
 
-dataset/cicids_balanced.csv
-🏋️ Train the Model
+From the main project directory:
 
-Run:
-
-python ml/train_model.py
-
-This trains the Random Forest model and generates:
-
-models/random_forest_model.pkl
-models/label_encoder.pkl
-models/feature_names.pkl
-🧪 Test the Model
-
-Run:
-
-python ml/test_model.py
-
-This performs a basic prediction test using the saved model.
-
-🚀 Run the FastAPI Backend
-
-From the project root:
-
+```bash
 python -m uvicorn backend.main:app --reload
+```
 
-The API should start at:
+Backend URL:
 
 http://127.0.0.1:8000
 
-Swagger documentation:
+API documentation:
 
 http://127.0.0.1:8000/docs
-🧪 Testing the Prediction API
 
-A small sample file can be created from the prepared dataset:
+### Terminal 2: Start the Frontend
 
-python -c "import pandas as pd; df=pd.read_csv('dataset/cicids_balanced.csv', nrows=10); df.to_csv('dataset/test_sample.csv', index=False); print('Created dataset/test_sample.csv with', len(df), 'rows')"
+```bash
+cd frontend
+npm run dev
+```
 
-Then:
+Frontend URL:
 
-Open /docs.
-Find POST /predict.
-Click Try it out.
-Upload dataset/test_sample.csv.
-Click Execute.
+http://localhost:5173
 
-The API should return:
+Open the frontend URL in your browser to access CyberSentinel.
 
-Filename
-Number of network flows
-Predicted attack
-Confidence
-Risk level
-🔐 Environment Variables
+## 🔗 API Endpoints
 
-Future API keys and secrets must never be committed to GitHub.
+The backend currently provides the following endpoints:
 
-For example, when Gemini is added:
+| Method | Endpoint   | Purpose                        |
+| ------ | ---------- | ------------------------------ |
+| GET    | `/`        | Check API availability         |
+| GET    | `/health`  | Check backend and model health |
+| POST   | `/predict` | Upload CSV and predict threats |
+| GET    | `/history` | Retrieve detection history     |
 
-.env
+### POST /predict
 
-will contain:
+Accepts a CSV file containing the required network-flow features.
 
-GEMINI_API_KEY=your_api_key_here
+The response includes information such as:
 
-The .env file must remain in .gitignore.
+- Uploaded filename
+- Total number of network flows
+- Predicted attack category
+- Prediction confidence
+- Risk score
+- Risk level
+- Risk explanation
 
-Never write API keys directly inside Python or React source code.
+### GET /history
 
-👥 Team Git Workflow
-
-This project is developed collaboratively using GitHub.
-
-Each team member should work on their own branch.
+Retrieves previously stored detection records from MongoDB.
 
 Example:
 
-main
-│
-├── kritika
-├── data-ml
-├── backend
-└── frontend
-Clone the Project
-git clone YOUR_GITHUB_REPOSITORY_URL
+```text
+http://127.0.0.1:8000/history?limit=20
+```
+
+## 🧪 Testing
+
+You can test the backend through FastAPI Swagger documentation.
+
+1. Start the backend.
+2. Open http://127.0.0.1:8000/docs.
+3. Find the `POST /predict` endpoint.
+4. Click **Try it out**.
+5. Upload a CSV file with the required network-flow features.
+6. Click **Execute**.
+7. Check the prediction response.
+
+The frontend also supports uploading CSV files and viewing the results through the dashboard.
+
+## 👥 Team Git Workflow
+
+All team members should work using the same GitHub repository.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Kritika011/AI-Cyber-Threat-Detection.git
 cd AI-Cyber-Threat-Detection
-Create a Branch
+```
+
+### 2. Create Your Own Branch
+
+```bash
+git checkout -b your-name
+```
 
 Example:
 
-git checkout -b your-name
+```bash
+git checkout -b sudipta
+```
 
-For example:
+### 3. Update Your Local Repository
 
-git checkout -b kritika
-Before Starting Work
+Before starting new work:
 
-Always update your local repository:
-
+```bash
 git checkout main
 git pull origin main
-
-Then return to your branch:
-
 git checkout your-name
-Save Changes
+```
 
-Check changes:
+### 4. Save Your Changes
 
-git status
-
-Add files:
-
+```bash
 git add .
-
-Commit:
-
 git commit -m "Describe your changes"
+```
 
-Push:
+### 5. Push Your Branch
 
+```bash
 git push -u origin your-name
-🔀 Pull Request Workflow
+```
 
-After finishing a feature:
+### 6. Create a Pull Request
 
-Your Branch
-     ↓
-git push
-     ↓
-GitHub
-     ↓
-Pull Request
-     ↓
-Code Review
-     ↓
-main
+Open GitHub and create a Pull Request from your branch into `main`.
 
-Do not directly push experimental or unfinished work to main.
+Team members should review changes before merging them into the main branch.
 
-🗺️ Development Roadmap
-Phase 1 — Dataset and ML
-Status: ✅ Completed
- Download CICIDS2017
- Inspect dataset
- Identify target column
- Clean missing/infinite values
- Prepare balanced working dataset
- Train Random Forest
- Evaluate model
- Save model
- Test prediction pipeline
-Phase 2 — FastAPI Backend
-Status: ✅ Partially Completed
- Create FastAPI application
- / endpoint
- /health endpoint
- /predict endpoint
- CSV upload
- ML prediction
- Confidence calculation
- Basic risk classification
- Swagger API documentation
-Remaining
- Better error handling
- Improved risk scoring
- Structured threat response
- Gemini integration
- Database integration
-Phase 3 — Generative AI
-Status: ⏳ Planned
+**Avoid directly pushing unfinished changes to `main`.**
 
-Integrate Google Gemini API.
+## ⚠️ Project Limitations
 
-Expected workflow:
+1. **Dataset Dependence:** The model is trained using CICIDS2017 and may not generalize to all real-world network traffic.
+2. **Class Imbalance:** Some attack categories have very few examples.
+3. **Prediction Confidence:** Model confidence is not necessarily a calibrated probability of a real-world attack.
+4. **Risk Scoring:** Current risk classification uses preliminary rules and requires further validation.
+5. **No Live Monitoring:** The current system analyzes uploaded CSV network-flow data. It does not capture live network packets.
+6. **Academic Prototype:** The platform is not a production-grade intrusion detection system.
 
-ML Prediction
-      ↓
-Attack Type
-      ↓
-Gemini API
-      ↓
-Threat Explanation
-      ↓
-Impact
-      ↓
-Mitigation
-      ↓
-Security Recommendations
+## 🔮 Future Improvements
 
-Example:
+- Google Gemini API integration for AI-assisted threat explanations.
+- Improved threat risk assessment.
+- Better handling of minority attack categories.
+- Independent dataset validation.
+- Real-time network-flow monitoring.
+- Advanced threat intelligence.
+- SHAP-based model explainability.
+- User authentication and role-based access.
+- Advanced analytics and reporting.
+- Automated security alerts.
+- Cloud deployment.
+- Docker containerization.
 
-Detected Threat:
-DoS Hulk
+## 👩‍💻 Project Team
 
-Risk:
-High
+**MCA Minor Project Team**
 
-AI Explanation:
-...
+| Team Member      | Responsibility                           |
+| ---------------- | ---------------------------------------- |
+| Kritika Pramanik | Machine Learning and Project Integration |
+| Sudipta Biswas   | Backend and Cybersecurity                |
+| Subhajoy Paul    | Database and Backend                     |
+| Sumit Singh      | Frontend and Integration                 |
 
-Potential Impact:
-...
+**Project Guide:** Tapan Kumar Chakraborty
 
-Recommended Mitigation:
-...
-Phase 4 — Database
-Status: ⏳ Planned
+## 📌 Disclaimer
 
-MySQL will store:
+CyberSentinel is an academic cybersecurity research prototype intended for educational, testing, and research purposes.
 
-User information
-Detection history
-Uploaded file information
-Predictions
-Confidence
-Risk level
-AI explanations
-Timestamps
+It should not be used as the sole security mechanism for protecting production infrastructure.
 
-Possible database tables:
+## 📄 License
 
-users
-detections
-threat_analysis
-Phase 5 — React Dashboard
-Status: ⏳ Planned
-
-Planned pages:
-
-Login
-   │
-   ▼
-Dashboard
-   │
-   ├── Threat Detection
-   │
-   ├── Threat History
-   │
-   └── Threat Details
-
-Dashboard will display:
-
-Total scans
-Total threats
-Benign traffic
-High-risk threats
-Attack distribution
-Recent detections
-Threat details
-AI explanations
-Phase 6 — Authentication
-Status: ⏳ Planned
-
-Planned authentication:
-
-Login
-Registration
-JWT authentication
-Protected API routes
-User-specific detection history
-🧪 Testing Plan
-
-The project will eventually include:
-
-Machine Learning Testing
-Accuracy
-Precision
-Recall
-F1-score
-Confusion matrix
-Per-class performance
-Cross-validation
-Independent test data
-Backend Testing
-API availability
-File upload validation
-Missing feature detection
-Invalid CSV handling
-Model prediction
-API response format
-Frontend Testing
-Login
-CSV upload
-Dashboard rendering
-API errors
-Threat details
-History
-Integration Testing
-React
- ↓
-FastAPI
- ↓
-ML Model
- ↓
-Risk Scoring
- ↓
-Gemini
- ↓
-MySQL
-⚠️ Important Limitations
-
-The current system is a research/academic prototype.
-
-It should not currently be considered a production-grade intrusion detection system.
-
-Important limitations include:
-
-1. Dataset Dependence
-
-The model is trained using CICIDS2017 and may not generalize perfectly to modern real-world network traffic.
-
-2. Class Imbalance
-
-Some attack classes contain very few samples.
-
-Therefore, metrics for extremely rare classes should be interpreted carefully.
-
-3. Current Evaluation
-
-The current evaluation uses a train/test split from the prepared dataset.
-
-An independent external dataset should be used for stronger validation.
-
-4. Confidence
-
-A Random Forest prediction probability should not automatically be interpreted as a calibrated probability of a real-world attack.
-
-5. Risk Scoring
-
-The current risk score is preliminary and will be improved.
-
-6. No Real-Time Network Monitoring
-
-The current system analyzes uploaded CSV network-flow data.
-
-It does not currently capture live network traffic.
-
-🔮 Future Improvements
-
-Potential future improvements include:
-
-Real-time traffic monitoring
-Streaming network-flow analysis
-XGBoost model comparison
-Neural network comparison
-Model explainability
-SHAP-based explanations
-Improved class imbalance handling
-Independent dataset validation
-Automated incident response
-Email alerts
-Security notifications
-Advanced risk scoring
-Role-based access
-Cloud deployment
-Containerization using Docker
-Monitoring and logging
-Model retraining pipeline
-📚 Research and Academic Use
-
-This project can be used to study:
-
-Cybersecurity
-Intrusion Detection Systems
-Machine Learning
-Classification
-Network Security
-Generative AI
-Threat Intelligence
-REST APIs
-Data Science
-Human-readable security analysis
-
-The project is intended for educational and research purposes.
-
-👩‍💻 Team
-MCA Minor Project Team
-Member	Responsibility
-Kritika Pramanik	Machine Learning & Project Integration
-Sudipta Biswas	Backend / Cybersecurity
-Subhajoy Paul	Database / Backend
-Sumit Singh	Frontend / Integration
-
-Responsibilities may change as development progresses.
-
-📌 Current Project Status
-Completed
-✅ CICIDS2017 dataset setup
-✅ Dataset inspection
-✅ Data preprocessing
-✅ Balanced working dataset
-✅ Random Forest training
-✅ Model evaluation
-✅ Model serialization
-✅ Prediction testing
-✅ FastAPI backend
-✅ CSV upload
-✅ Threat classification
-✅ Confidence calculation
-✅ Basic risk scoring
-✅ Swagger API
-In Progress / Planned
-⏳ Improved risk scoring
-⏳ Gemini AI integration
-⏳ MySQL database
-⏳ React frontend
-⏳ Dashboard
-⏳ Authentication
-⏳ Threat history
-⏳ AI threat analysis
-⏳ Full system integration
-⚖️ Disclaimer
-
-This project is an academic cybersecurity research prototype.
-
-It is intended for educational, testing, and research purposes using publicly available network-flow data.
-
-The system should not be used as the sole security mechanism for protecting production infrastructure.
-
-📄 License
-
-License information will be added after the project team decides on the appropriate license.
-
-
-### One correction I'd make before you commit this
-
-In your actual repository, **don't put the current `dataset/` contents or `.pkl` files in GitHub**. Keep them locally and let the README explain how teammates recreate them.
-
-Also, because your project is being developed by four people, the **Git workflow section is particularly important**. Everyone should clone the same repository, create their own branch, and use Pull Requests rather than editing `main` directly.
-
-Once you create this `README.md`, your next Git commands can be:
-
-```powershell
-git add README.md .gitignore requirements.txt
-git commit -m "Add project documentation and setup instructions"
-git push
-````
+All rights are reserved by the project authors unless otherwise stated.
